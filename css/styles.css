@@ -12,7 +12,7 @@ h1{
     text-align: center;
 }
 
-#time {
+#timer {
     margin-top: 7px;
     margin-bottom: 7px;
 }
@@ -25,16 +25,30 @@ h1{
     margin: auto;
 }
 
-#p1Score {
+#p1Line {
     float: left;
     margin-left: 75px;
     text-decoration: underline;
 }
 
-#p2Score {
+#p1Score {
+    float: left;
+    position: absolute;
+    margin-top: 50px;
+    margin-left: 105px;
+}
+
+#p2Line {
     float: right;
     margin-right: 75px;
     text-decoration: underline;
+}
+
+#p2Score {
+    float: right;
+    position: absolute;
+    margin-top: 50px;
+    margin-left: 1277px;
 }
 
 #player1 {

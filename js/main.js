@@ -13,6 +13,7 @@ $player2.css({
 $("#playingField").append($player1, $player2)
 
 //--------------------------------------------------------
+var intervalAddTime = null
 
 function distance(p1, p2) {
     return Math.sqrt((p2.x-p1.x)*(p2.x-p1.x)+(p2.y-p1.y)*(p2.y-p1.y))
@@ -53,9 +54,10 @@ setInterval(function () {
         top: y + 'px'
     })
 
+    // collision detection
     var d = distance({x:$player1.position().left, y:$player1.position().top}, {x:$player2.position().left, y:$player2.position().top}) 
         if(d <= 30) {
-            console.log("gotcha")
+            clearInterval(intervalAddTime);
         }
 
 }, 1/30);
@@ -108,7 +110,7 @@ function addTime() {
 }
 
 startGame.addEventListener("click", function() {
-    var intervalAddTime = setInterval(addTime, 1000)
+    intervalAddTime = setInterval(addTime, 1000)
 })
 
 
