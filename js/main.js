@@ -95,5 +95,29 @@ setInterval(function () {
         top: y + 'px'
     })
 
-}, 1/30);
+}, 1);
+
+//----------------------------------------------------
+var $time = $("#time")
+var $startTimer = $("input")
+var seconds = 0
+var minutes = 0
+var t
+
+function addTime() {
+    seconds++;
+    if(seconds >= 60) {
+        seconds = 0;
+        minutes++;
+    }
+
+    time.textContent = (minutes ? (minutes > 9 ? minutes: "0" + minutes): "00") + ":" + (seconds > 9 ? seconds: "0" + seconds);
+    timer();
+}
+
+function timer() {
+    t = setTimeout(addTime, 1000);
+}
+
+$startTimer.on("click", timer())
 
