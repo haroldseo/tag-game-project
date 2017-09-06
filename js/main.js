@@ -6,36 +6,85 @@ $player1.css({
     top: 310
 })
 $player2.css({
-    left: 910,
+    left: 870,
     top: 310
 })
 
 $("#playingField").append($player1, $player2)
 
-//--------------------------
-var $p1Move = $player1
-$(document).keydown(function(e) {
-    if(e.keyCode === 65) {
-        $p1Move.css("left", ($p1Move.position().left - 30) + "px");
-    } else if (e.keyCode === 68) {
-        $p1Move.css("left", ($p1Move.position().left + 30) + "px");
-    } else if (e.keyCode === 87) {
-        $p1Move.css("top", ($p1Move.position().top - 30) + "px");
-    } else if (e.keyCode === 83) {
-        $p1Move.css("top", ($p1Move.position().top + 30) + "px");
-    }
-})
+//--------------------------------------------------------
 
-var $p2Move = $player2
-$(document).keydown(function(e) {
-    if(e.keyCode === 37) {
-        $p2Move.css("left", ($p2Move.position().left - 30) + "px");
-    } else if (e.keyCode === 39) {
-        $p2Move.css("left", ($p2Move.position().left + 30) + "px");
-    } else if (e.keyCode === 38) {
-        $p2Move.css("top", ($p2Move.position().top - 30) + "px");
-    } else if (e.keyCode === 40) {
-        $p2Move.css("top", ($p2Move.position().top + 30) + "px");
+keyCodes = {left: 37, up: 38, right: 39, down: 40},
+keys = [];
+
+window.addEventListener('keydown', function (evt) {
+    keys[evt.keyCode] = true;
+});
+window.addEventListener('keyup', function (evt) {
+    keys[evt.keyCode] = false;
+});
+
+setInterval(function () {
+    // player 1
+    // get position of div
+    var x = parseInt($player1.position().left, 10),
+        y = parseInt($player1.position().top, 10);
+
+    // left/right
+    if (keys[keyCodes.left]) {
+        x -= 1;
+    } else if (keys[keyCodes.right]) {
+        x += 1;
     }
-})
+    // up/down
+    if (keys[keyCodes.up]) {
+        y -= 1;
+    } else if (keys[keyCodes.down]) {
+        y += 1;
+    }
+
+    // set div position
+    $player1.css({
+        left: x + 'px',
+        top: y + 'px'
+    })
+
+}, 1/30);
+
+
+keyCodes2 = {left: 65, up: 87, right: 68, down: 83},
+keys2 = [];
+
+window.addEventListener('keydown', function (evt) {
+    keys2[evt.keyCode] = true;
+});
+window.addEventListener('keyup', function (evt) {
+    keys2[evt.keyCode] = false;
+});
+
+setInterval(function () {
+     // player 2
+    var x = parseInt($player2.position().left, 10),
+        y = parseInt($player2.position().top, 10);
+
+    // left/right
+    if (keys2[keyCodes2.left]) {
+        x -= 1;
+    } else if (keys2[keyCodes2.right]) {
+        x += 1;
+    }
+    // up/down
+    if (keys2[keyCodes2.up]) {
+        y -= 1;
+    } else if (keys2[keyCodes2.down]) {
+        y += 1;
+    }   
+
+    // set div position
+    $player2.css({
+        left: x + 'px',
+        top: y + 'px'
+    })
+
+}, 1/30);
 
