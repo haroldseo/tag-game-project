@@ -98,26 +98,17 @@ setInterval(function () {
 }, 1);
 
 //----------------------------------------------------
-var $time = $("#time")
-var $startTimer = $("input")
+var time = document.querySelector("#timer")
+var startGame = document.querySelector("button")
 var seconds = 0
-var minutes = 0
-var t
 
 function addTime() {
-    seconds++;
-    if(seconds >= 60) {
-        seconds = 0;
-        minutes++;
-    }
-
-    time.textContent = (minutes ? (minutes > 9 ? minutes: "0" + minutes): "00") + ":" + (seconds > 9 ? seconds: "0" + seconds);
-    timer();
+    seconds = seconds + 1
+    time.innerText = "Time: " + seconds
 }
 
-function timer() {
-    t = setTimeout(addTime, 1000);
-}
+startGame.addEventListener("click", function() {
+    var intervalAddTime = setInterval(addTime, 1000)
+})
 
-$startTimer.on("click", timer())
 
