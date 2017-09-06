@@ -3,11 +3,11 @@ var $player2 = $("#player2")
 
 $player1.css({
     left: 10,
-    top: 310
+    top: 285
 })
 $player2.css({
-    left: 870,
-    top: 310
+    left: 860,
+    top: 285
 })
 
 $("#playingField").append($player1, $player2)

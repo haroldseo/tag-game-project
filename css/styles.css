@@ -1,10 +1,15 @@
 h1 {
     text-align: center;
+    margin-bottom: 7px;
 }
 
 #container {
     width: 1394px;
     height: 700px;
+}
+
+#start {
+    text-align: center;
 }
 
 #playingField {
