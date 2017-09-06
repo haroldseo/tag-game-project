@@ -14,6 +14,10 @@ $("#playingField").append($player1, $player2)
 
 //--------------------------------------------------------
 
+function distance(p1, p2) {
+    return Math.sqrt((p2.x-p1.x)*(p2.x-p1.x)+(p2.y-p1.y)*(p2.y-p1.y))
+}
+
 keyCodes = {left: 65, up: 87, right: 68, down: 83},
 keys = [];
 
@@ -48,6 +52,11 @@ setInterval(function () {
         left: x + 'px',
         top: y + 'px'
     })
+
+    var d = distance({x:$player1.position().left, y:$player1.position().top}, {x:$player2.position().left, y:$player2.position().top}) 
+    if(d < 30) {
+        console.log("collision")
+    }
 
 }, 1/30);
 
