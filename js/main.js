@@ -32,7 +32,7 @@ window.addEventListener('keyup', function (evt) {
     keys[evt.keyCode] = false;
 });
 
-setInterval(function () {
+var p1Movement = setInterval(function () {
     // player 1
     // get position of div
     var x = parseInt($player1.position().left, 10),
@@ -63,12 +63,11 @@ setInterval(function () {
         if(d <= 30) {
             clearInterval(intervalAddTime);
             p1s.innerText = seconds
+            alert("Tag, you're it!! (Now Switch)")
+            clearInterval(p1Movement);
         }
     }
-    
-
-}, 1/30);
-
+}, 1);
 
 keyCodes2 = {left: 37, up: 38, right: 39, down: 40},
 keys2 = [];
@@ -80,7 +79,7 @@ window.addEventListener('keyup', function (evt) {
     keys2[evt.keyCode] = false;
 });
 
-setInterval(function () {
+var p2Movement = setInterval(function () {
      // player 2
     var x = parseInt($player2.position().left, 10),
         y = parseInt($player2.position().top, 10);
@@ -109,6 +108,12 @@ setInterval(function () {
         if(d <= 30) {
             clearInterval(intervalAddTime);
             p2s.innerText = seconds
+            if(p1s.innerText < p2s.innerText) {
+                alert("Player 1 Wins!")
+            } else if (p2s.innerText < p1s.innerText) {
+                alert("Player 2 Wins!")
+            }
+            clearInterval(p2Movement)
         }
     }
    
