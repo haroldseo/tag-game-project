@@ -35,15 +35,15 @@ setInterval(function () {
         y = parseInt($player1.position().top, 10);
 
     // left/right
-    if (keys[keyCodes.left]) {
+    if (keys[keyCodes.left] && $player1.position().left > 0 ) {
         x -= 1;
-    } else if (keys[keyCodes.right]) {
+    } else if (keys[keyCodes.right] && $player1.position().left < 870) {
         x += 1;
     }
     // up/down
-    if (keys[keyCodes.up]) {
+    if (keys[keyCodes.up] && $player1.position().top > 0) {
         y -= 1;
-    } else if (keys[keyCodes.down]) {
+    } else if (keys[keyCodes.down] && $player1.position().top < 570) {
         y += 1;
     }
 
@@ -54,9 +54,9 @@ setInterval(function () {
     })
 
     var d = distance({x:$player1.position().left, y:$player1.position().top}, {x:$player2.position().left, y:$player2.position().top}) 
-    if(d < 30) {
-        console.log("collision")
-    }
+        if(d <= 30) {
+            console.log("gotcha")
+        }
 
 }, 1/30);
 
@@ -77,15 +77,15 @@ setInterval(function () {
         y = parseInt($player2.position().top, 10);
 
     // left/right
-    if (keys2[keyCodes2.left]) {
+    if (keys2[keyCodes2.left] && $player2.position().left > 0) {
         x -= 1;
-    } else if (keys2[keyCodes2.right]) {
+    } else if (keys2[keyCodes2.right] && $player2.position().left < 870) {
         x += 1;
     }
     // up/down
-    if (keys2[keyCodes2.up]) {
+    if (keys2[keyCodes2.up] && $player2.position().top > 0) {
         y -= 1;
-    } else if (keys2[keyCodes2.down]) {
+    } else if (keys2[keyCodes2.down] && $player2.position().top < 570) {
         y += 1;
     }   
 

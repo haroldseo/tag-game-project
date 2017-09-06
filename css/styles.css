@@ -20,6 +20,18 @@ h1 {
     margin: auto;
 }
 
+#p1Score {
+    float: left;
+    margin-left: 75px;
+    text-decoration: underline;
+}
+
+#p2Score {
+    float: right;
+    margin-right: 75px;
+    text-decoration: underline;
+}
+
 #player1 {
     width: 30px;
     height: 30px;
