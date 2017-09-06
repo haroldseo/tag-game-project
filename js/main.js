@@ -14,7 +14,7 @@ $("#playingField").append($player1, $player2)
 
 //--------------------------------------------------------
 
-keyCodes = {left: 37, up: 38, right: 39, down: 40},
+keyCodes = {left: 65, up: 87, right: 68, down: 83},
 keys = [];
 
 window.addEventListener('keydown', function (evt) {
@@ -52,7 +52,7 @@ setInterval(function () {
 }, 1/30);
 
 
-keyCodes2 = {left: 65, up: 87, right: 68, down: 83},
+keyCodes2 = {left: 37, up: 38, right: 39, down: 40},
 keys2 = [];
 
 window.addEventListener('keydown', function (evt) {
