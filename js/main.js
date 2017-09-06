@@ -14,6 +14,9 @@ $("#playingField").append($player1, $player2)
 
 //--------------------------------------------------------
 var intervalAddTime = null
+var p1s = document.querySelector("#p1Score")
+var p2s = document.querySelector("#p2Score")
+var currentPlayer = 1
 
 function distance(p1, p2) {
     return Math.sqrt((p2.x-p1.x)*(p2.x-p1.x)+(p2.y-p1.y)*(p2.y-p1.y))
@@ -55,10 +58,14 @@ setInterval(function () {
     })
 
     // collision detection
-    var d = distance({x:$player1.position().left, y:$player1.position().top}, {x:$player2.position().left, y:$player2.position().top}) 
+    if(currentPlayer === 1) {
+        var d = distance({x:$player1.position().left, y:$player1.position().top}, {x:$player2.position().left, y:$player2.position().top}) 
         if(d <= 30) {
             clearInterval(intervalAddTime);
+            p1s.innerText = seconds
         }
+    }
+    
 
 }, 1/30);
 
@@ -97,11 +104,19 @@ setInterval(function () {
         top: y + 'px'
     })
 
+    if(currentPlayer === 2) {
+        var d = distance({x:$player2.position().left, y:$player2.position().top}, {x:$player1.position().left, y:$player1.position().top}) 
+        if(d <= 30) {
+            clearInterval(intervalAddTime);
+            p2s.innerText = seconds
+        }
+    }
+   
 }, 1);
 
 //----------------------------------------------------
 var time = document.querySelector("#timer")
-var startGame = document.querySelector("button")
+var startGame = document.querySelector("#SG")
 var seconds = 0
 
 function addTime() {
@@ -113,4 +128,23 @@ startGame.addEventListener("click", function() {
     intervalAddTime = setInterval(addTime, 1000)
 })
 
+//----------------------------------------------------
+var nextPlayer = document.querySelector("#S")
+
+nextPlayer.addEventListener("click", function() {
+    seconds = 0
+    time.innerText = "Time: " + 0
+    $player1.css({
+        left: 10,
+        top: 285
+    })
+    $player2.css({
+        left: 860,
+        top: 285
+    })
+    intervalAddTime = setInterval(addTime, 1000)
+    if(currentPlayer === 1) {
+        currentPlayer = 2
+    }
+})
 
