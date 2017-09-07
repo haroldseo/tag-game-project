@@ -1,11 +1,12 @@
 body {
-    background: #827D7D
+    background: #717171;
 }
 
 h1{
     text-align: center;
     margin: 5px auto;
-    color: #D39292;
+    color: #FFFFFF;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 #container {
@@ -17,26 +18,36 @@ h1{
     text-align: center;
 }
 
+#SG {
+    border: 1px solid black;
+}
+
+#S {
+    border: 1px solid black;
+}
+
 #timer {
     margin-top: 7px;
     margin-bottom: 7px;
-    color: #D39292;
+    color: #FFFFFF;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 #playingField {
     width: 900px;
     height: 600px;
-    background: #CDCDCD;
+    background: #D2FFD7;
     position: relative;
     margin: auto;
-    border: 3px solid black;
+    border: 1px solid #000000;
 }
 
 #p1Line {
     float: left;
     margin-left: 75px;
     text-decoration: underline;
-    color: #F6D815;
+    color: #FF9797;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 #p1Score {
@@ -44,14 +55,16 @@ h1{
     position: absolute;
     margin-top: 50px;
     margin-left: 105px;
-    color: #F6D815;
+    color: #FF9797;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 #p2Line {
     float: right;
     margin-right: 75px;
     text-decoration: underline;
-    color: #7928DB;
+    color: #99B1FF;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 #p2Score {
@@ -59,41 +72,50 @@ h1{
     position: absolute;
     margin-top: 50px;
     margin-left: 1277px;
-    color: #7928DB;
+    color: #99B1FF;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 #player1 {
     width: 30px;
     height: 30px;
-    background: #F6D815;
+    background: #FF9797;
     border-radius: 50%;
     position: absolute;
     text-align: center;
-    color: #7928DB
+    color: #000000;
+    border: 1px solid black;
 }
 
 #player2 {
     width: 30px;
     height: 30px;
-    background: #7928DB;
+    background: #99B1FF;
     border-radius: 50%;
     position: absolute;
     text-align: center;
-    color: #F6D815
+    color: #000000;
+    border: 1px solid black;
 }
 
 #wall {
     width: 250px;
     height: 70px;
-    background: #4CA8D7;
+    background: #D8B9FF;
     position: absolute;
     text-align: center;
+    border: 1px solid black;
+    color: #FFFFFF;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 #wall2 {
     width: 250px;
     height: 70px;
-    background: #4CA8D7;
+    background: #D8B9FF;
     position: absolute;
     text-align: center;
+    border: 1px solid black;
+    color: #FFFFFF;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }

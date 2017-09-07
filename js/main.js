@@ -16,7 +16,7 @@ $wall.css({
     top: 80,
 })
 $wall2.css({
-    left: 500,
+    left: 550,
     top: 450
 })
 
