@@ -13,10 +13,13 @@ $player2.css({
 $("#playingField").append($player1, $player2)
 
 //--------------------------------------------------------
-var intervalAddTime = null
 var p1s = document.querySelector("#p1Score")
 var p2s = document.querySelector("#p2Score")
 var currentPlayer = 1
+
+var intervalAddTime = null
+var p1Movement = null
+var p2Movement = null
 
 function distance(p1, p2) {
     return Math.sqrt((p2.x-p1.x)*(p2.x-p1.x)+(p2.y-p1.y)*(p2.y-p1.y))
@@ -32,43 +35,6 @@ window.addEventListener('keyup', function (evt) {
     keys[evt.keyCode] = false;
 });
 
-var p1Movement = setInterval(function () {
-    // player 1
-    // get position of div
-    var x = parseInt($player1.position().left, 10),
-        y = parseInt($player1.position().top, 10);
-
-    // left/right
-    if (keys[keyCodes.left] && $player1.position().left > 0 ) {
-        x -= 1;
-    } else if (keys[keyCodes.right] && $player1.position().left < 870) {
-        x += 1;
-    }
-    // up/down
-    if (keys[keyCodes.up] && $player1.position().top > 0) {
-        y -= 1;
-    } else if (keys[keyCodes.down] && $player1.position().top < 570) {
-        y += 1;
-    }
-
-    // set div position
-    $player1.css({
-        left: x + 'px',
-        top: y + 'px'
-    })
-
-    // collision detection
-    if(currentPlayer === 1) {
-        var d = distance({x:$player1.position().left, y:$player1.position().top}, {x:$player2.position().left, y:$player2.position().top}) 
-        if(d <= 30) {
-            clearInterval(intervalAddTime);
-            p1s.innerText = seconds
-            alert("Tag, you're it!! (Now Switch)")
-            clearInterval(p1Movement);
-        }
-    }
-}, 1);
-
 keyCodes2 = {left: 37, up: 38, right: 39, down: 40},
 keys2 = [];
 
@@ -79,45 +45,86 @@ window.addEventListener('keyup', function (evt) {
     keys2[evt.keyCode] = false;
 });
 
-var p2Movement = setInterval(function () {
-     // player 2
-    var x = parseInt($player2.position().left, 10),
-        y = parseInt($player2.position().top, 10);
-
-    // left/right
-    if (keys2[keyCodes2.left] && $player2.position().left > 0) {
-        x -= 1;
-    } else if (keys2[keyCodes2.right] && $player2.position().left < 870) {
-        x += 1;
-    }
-    // up/down
-    if (keys2[keyCodes2.up] && $player2.position().top > 0) {
-        y -= 1;
-    } else if (keys2[keyCodes2.down] && $player2.position().top < 570) {
-        y += 1;
-    }   
-
-    // set div position
-    $player2.css({
-        left: x + 'px',
-        top: y + 'px'
-    })
-
-    if(currentPlayer === 2) {
-        var d = distance({x:$player2.position().left, y:$player2.position().top}, {x:$player1.position().left, y:$player1.position().top}) 
-        if(d <= 30) {
-            clearInterval(intervalAddTime);
-            p2s.innerText = seconds
-            if(p1s.innerText < p2s.innerText) {
-                alert("Player 1 Wins!")
-            } else if (p2s.innerText < p1s.innerText) {
-                alert("Player 2 Wins!")
-            }
-            clearInterval(p2Movement)
+function setMovement() {
+    p1Movement = setInterval(function() {
+        // player 1
+        // get position of div
+        var x = parseInt($player1.position().left, 10),
+            y = parseInt($player1.position().top, 10);
+    
+        // left/right
+        if (keys[keyCodes.left] && $player1.position().left > 0 ) {
+            x -= 1;
+        } else if (keys[keyCodes.right] && $player1.position().left < 870) {
+            x += 1;
         }
-    }
-   
-}, 1);
+        // up/down
+        if (keys[keyCodes.up] && $player1.position().top > 0) {
+            y -= 1;
+        } else if (keys[keyCodes.down] && $player1.position().top < 570) {
+            y += 1;
+        }
+    
+        // set div position
+        $player1.css({
+            left: x + 'px',
+            top: y + 'px'
+        })
+    
+        // collision detection
+        if(currentPlayer === 1) {
+            var d = distance({x:$player1.position().left, y:$player1.position().top}, {x:$player2.position().left, y:$player2.position().top}) 
+            if(d <= 30) {
+                clearInterval(intervalAddTime);
+                p1s.innerText = seconds
+                clearInterval(p1Movement);
+                clearInterval(p2Movement);
+                // alert("Tag, you're it!! (Now Switch)")
+            }
+        }
+    }, 2);
+    //----------------------------------------------------------------------
+    
+    p2Movement = setInterval(function () {
+         // player 2
+        var x = parseInt($player2.position().left, 10),
+            y = parseInt($player2.position().top, 10);
+    
+        // left/right
+        if (keys2[keyCodes2.left] && $player2.position().left > 0) {
+            x -= 1;
+        } else if (keys2[keyCodes2.right] && $player2.position().left < 870) {
+            x += 1;
+        }
+        // up/down
+        if (keys2[keyCodes2.up] && $player2.position().top > 0) {
+            y -= 1;
+        } else if (keys2[keyCodes2.down] && $player2.position().top < 570) {
+            y += 1;
+        }   
+    
+        // set div position
+        $player2.css({
+            left: x + 'px',
+            top: y + 'px'
+        })
+    
+        if(currentPlayer === 2) {
+            var d = distance({x:$player2.position().left, y:$player2.position().top}, {x:$player1.position().left, y:$player1.position().top}) 
+            if(d <= 30) {
+                clearInterval(intervalAddTime);
+                p2s.innerText = seconds
+                if(p1s.innerText < p2s.innerText) {
+                    alert("Player 1 Wins!")
+                } else if (p2s.innerText < p1s.innerText) {
+                    alert("Player 2 Wins!")
+                }
+                clearInterval(p1Movement)
+                clearInterval(p2Movement)
+            }
+        }
+    }, 2);
+}
 
 //----------------------------------------------------
 var time = document.querySelector("#timer")
@@ -131,6 +138,7 @@ function addTime() {
 
 startGame.addEventListener("click", function() {
     intervalAddTime = setInterval(addTime, 1000)
+    setMovement()
 })
 
 //----------------------------------------------------
@@ -150,6 +158,7 @@ nextPlayer.addEventListener("click", function() {
     intervalAddTime = setInterval(addTime, 1000)
     if(currentPlayer === 1) {
         currentPlayer = 2
+        setMovement()
     }
 })
 
