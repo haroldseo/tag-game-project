@@ -120,6 +120,8 @@ function setMovement() {
                     heading.innerText = "Player 1 Wins!!!!!"
                 } else if (p2s.innerText < p1s.innerText) {
                     heading.innerText = "Player 2 Wins!!!!!"
+                } else if (p1s.innerText === p2s.innerText) {
+                    heading.innerText = "It's a tie!"
                 }
                 heading.style.fontSize = "300%" 
                 clearInterval(p1Movement)
