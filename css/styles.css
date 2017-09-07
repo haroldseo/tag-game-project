@@ -77,3 +77,19 @@ h1{
     border-radius: 50%;
     position: absolute;
 }
+
+#wall {
+    width: 250px;
+    height: 70px;
+    background: #4CA8D7;
+    position: absolute;
+    text-align: center;
+}
+
+#wall2 {
+    width: 250px;
+    height: 70px;
+    background: #4CA8D7;
+    position: absolute;
+    text-align: center;
+}

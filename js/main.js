@@ -1,5 +1,7 @@
 var $player1 = $("#player1")
 var $player2 = $("#player2")
+var $wall = $("#wall")
+var $wall2 = $("#wall2")
 
 $player1.css({
     left: 10,
@@ -9,8 +11,16 @@ $player2.css({
     left: 860,
     top: 285
 })
+$wall.css({
+    left: 90,
+    top: 80,
+})
+$wall2.css({
+    left: 500,
+    top: 450
+})
 
-$("#playingField").append($player1, $player2)
+$("#playingField").append($player1, $player2, $wall, $wall2)
 
 //--------------------------------------------------------
 var p1s = document.querySelector("#p1Score")
@@ -30,6 +40,7 @@ keyCodes = {left: 65, up: 87, right: 68, down: 83},
 keys = [];
 
 window.addEventListener('keydown', function (evt) {
+    evt.preventDefault()
     keys[evt.keyCode] = true;
 });
 window.addEventListener('keyup', function (evt) {
@@ -40,6 +51,7 @@ keyCodes2 = {left: 37, up: 38, right: 39, down: 40},
 keys2 = [];
 
 window.addEventListener('keydown', function (evt) {
+    evt.preventDefault()
     keys2[evt.keyCode] = true;
 });
 window.addEventListener('keyup', function (evt) {
@@ -54,7 +66,7 @@ function setMovement() {
             y = parseInt($player1.position().top, 10);
     
         // left/right
-        if (keys[keyCodes.left] && $player1.position().left > 0 ) {
+        if (keys[keyCodes.left] && $player1.position().left > 0) {
             x -= 1;
         } else if (keys[keyCodes.right] && $player1.position().left < 870) {
             x += 1;
@@ -116,11 +128,13 @@ function setMovement() {
             if(d <= 30) {
                 clearInterval(intervalAddTime);
                 p2s.innerText = seconds
-                if(p1s.innerText < p2s.innerText) {
+                var p1Time = Number(p1s.innerText)
+                var p2Time = Number(p2s.innerText)
+                if(p1Time < p2Time){
                     heading.innerText = "Player 1 Wins!!!!!"
-                } else if (p2s.innerText < p1s.innerText) {
+                } else if (p1Time > p2Time) {
                     heading.innerText = "Player 2 Wins!!!!!"
-                } else if (p1s.innerText === p2s.innerText) {
+                } else {
                     heading.innerText = "It's a tie!"
                 }
                 heading.style.fontSize = "300%" 
