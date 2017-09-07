@@ -1,6 +1,11 @@
+body {
+    background: #827D7D
+}
+
 h1{
     text-align: center;
     margin: 5px auto;
+    color: #D39292;
 }
 
 #container {
@@ -15,20 +20,23 @@ h1{
 #timer {
     margin-top: 7px;
     margin-bottom: 7px;
+    color: #D39292;
 }
 
 #playingField {
     width: 900px;
     height: 600px;
-    background: #8686C6;
+    background: #CDCDCD;
     position: relative;
     margin: auto;
+    border: 3px solid black;
 }
 
 #p1Line {
     float: left;
     margin-left: 75px;
     text-decoration: underline;
+    color: #F6D815;
 }
 
 #p1Score {
@@ -36,12 +44,14 @@ h1{
     position: absolute;
     margin-top: 50px;
     margin-left: 105px;
+    color: #F6D815;
 }
 
 #p2Line {
     float: right;
     margin-right: 75px;
     text-decoration: underline;
+    color: #7928DB;
 }
 
 #p2Score {
@@ -49,12 +59,13 @@ h1{
     position: absolute;
     margin-top: 50px;
     margin-left: 1277px;
+    color: #7928DB;
 }
 
 #player1 {
     width: 30px;
     height: 30px;
-    background: red;
+    background: #F6D815;
     border-radius: 50%;
     position: absolute;
 }
@@ -62,7 +73,7 @@ h1{
 #player2 {
     width: 30px;
     height: 30px;
-    background: blue;
+    background: #7928DB;
     border-radius: 50%;
     position: absolute;
 }
