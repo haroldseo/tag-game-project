@@ -25,8 +25,8 @@ $("#playingField").append($player1, $player2, $wall, $wall2)
 //--------------------------------------------------------
 var p1s = document.querySelector("#p1Score")
 var p2s = document.querySelector("#p2Score")
-var currentPlayer = 1
 var heading = document.querySelector("h1")
+var currentPlayer = 1
 
 var intervalAddTime = null
 var p1Movement = null
@@ -174,6 +174,8 @@ startGame.addEventListener("click", function() {
     heading.style.fontSize = "200%"
     p1s.innerText = "0"
     p2s.innerText = "0"
+    $player1.text("IT")
+    $player2.text("")
     if(currentPlayer === 2) {
         currentPlayer = 1
     }
@@ -196,6 +198,8 @@ nextPlayer.addEventListener("click", function() {
     })
     heading.innerText = "Tag, You're It!"
     heading.style.fontSize = "200%"
+    $player1.text("")
+    $player2.text("IT")
     intervalAddTime = setInterval(addTime, 1000)
     if(currentPlayer === 1) {
         currentPlayer = 2

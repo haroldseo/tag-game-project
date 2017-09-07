@@ -68,6 +68,8 @@ h1{
     background: #F6D815;
     border-radius: 50%;
     position: absolute;
+    text-align: center;
+    color: #7928DB
 }
 
 #player2 {
@@ -76,6 +78,8 @@ h1{
     background: #7928DB;
     border-radius: 50%;
     position: absolute;
+    text-align: center;
+    color: #F6D815
 }
 
 #wall {
