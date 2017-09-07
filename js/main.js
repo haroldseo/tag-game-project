@@ -119,9 +119,7 @@ function setMovement() {
                     heading.innerText = "Player 1 Wins!!!!!"
                 } else if (p2s.innerText < p1s.innerText) {
                     heading.innerText = "Player 2 Wins!!!!!"
-                } else if (p1s.innerText === p2s.innerText) {
-                    heading.innerText = "It's a tie!!!!!"
-                }
+                } 
                 clearInterval(p1Movement)
                 clearInterval(p2Movement)
             }
@@ -140,8 +138,24 @@ function addTime() {
 }
 
 startGame.addEventListener("click", function() {
+    seconds = 0
+    time.innerText = "Time: " + 0
+    $player1.css({
+        left: 10,
+        top: 285
+    })
+    $player2.css({
+        left: 860,
+        top: 285
+    })
     intervalAddTime = setInterval(addTime, 1000)
     setMovement()
+    heading.innerText = "Tag, You're It!"
+    p1s.innerText = "0"
+    p2s.innerText = "0"
+    if(currentPlayer === 2) {
+        currentPlayer = 1
+    }
 })
 
 //----------------------------------------------------
