@@ -16,6 +16,7 @@ $("#playingField").append($player1, $player2)
 var p1s = document.querySelector("#p1Score")
 var p2s = document.querySelector("#p2Score")
 var currentPlayer = 1
+var heading = document.querySelector("h1")
 
 var intervalAddTime = null
 var p1Movement = null
@@ -79,7 +80,7 @@ function setMovement() {
                 p1s.innerText = seconds
                 clearInterval(p1Movement);
                 clearInterval(p2Movement);
-                // alert("Tag, you're it!! (Now Switch)")
+                heading.innerText = "Tag, You're It!!!!!!!!!!  (Now Switch)"
             }
         }
     }, 2);
@@ -115,9 +116,11 @@ function setMovement() {
                 clearInterval(intervalAddTime);
                 p2s.innerText = seconds
                 if(p1s.innerText < p2s.innerText) {
-                    alert("Player 1 Wins!")
+                    heading.innerText = "Player 1 Wins!!!!!"
                 } else if (p2s.innerText < p1s.innerText) {
-                    alert("Player 2 Wins!")
+                    heading.innerText = "Player 2 Wins!!!!!"
+                } else if (p1s.innerText === p2s.innerText) {
+                    heading.innerText = "It's a tie!!!!!"
                 }
                 clearInterval(p1Movement)
                 clearInterval(p2Movement)
