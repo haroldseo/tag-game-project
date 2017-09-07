@@ -80,7 +80,8 @@ function setMovement() {
                 p1s.innerText = seconds
                 clearInterval(p1Movement);
                 clearInterval(p2Movement);
-                heading.innerText = "Tag, You're It!!!!!!!!!!  (Now Switch)"
+                heading.innerText = "Tag, You're It!!!!!  (Now Switch)"
+                heading.style.fontSize = "300%"
             }
         }
     }, 2);
@@ -119,7 +120,8 @@ function setMovement() {
                     heading.innerText = "Player 1 Wins!!!!!"
                 } else if (p2s.innerText < p1s.innerText) {
                     heading.innerText = "Player 2 Wins!!!!!"
-                } 
+                }
+                heading.style.fontSize = "300%" 
                 clearInterval(p1Movement)
                 clearInterval(p2Movement)
             }
@@ -128,6 +130,7 @@ function setMovement() {
 }
 
 //----------------------------------------------------
+// timer
 var time = document.querySelector("#timer")
 var startGame = document.querySelector("#SG")
 var seconds = 0
@@ -136,7 +139,8 @@ function addTime() {
     seconds = seconds + 1
     time.innerText = "Time: " + seconds
 }
-
+//-----------------------------------------------------
+// start button/reset
 startGame.addEventListener("click", function() {
     seconds = 0
     time.innerText = "Time: " + 0
@@ -151,6 +155,7 @@ startGame.addEventListener("click", function() {
     intervalAddTime = setInterval(addTime, 1000)
     setMovement()
     heading.innerText = "Tag, You're It!"
+    heading.style.fontSize = "200%"
     p1s.innerText = "0"
     p2s.innerText = "0"
     if(currentPlayer === 2) {
@@ -159,6 +164,7 @@ startGame.addEventListener("click", function() {
 })
 
 //----------------------------------------------------
+// switch button
 var nextPlayer = document.querySelector("#S")
 
 nextPlayer.addEventListener("click", function() {
@@ -172,6 +178,8 @@ nextPlayer.addEventListener("click", function() {
         left: 860,
         top: 285
     })
+    heading.innerText = "Tag, You're It!"
+    heading.style.fontSize = "200%"
     intervalAddTime = setInterval(addTime, 1000)
     if(currentPlayer === 1) {
         currentPlayer = 2
