@@ -1,6 +1,5 @@
 # TAG, You're It!
 ### 2-Player, Head to Head Game
---
 ## Objective
 - Players will take turns being "it", the "it" player has to chase down the other player as quickly as possible, the player with the faster time wins. 
 - Player 1 will use the WASD keys to move
