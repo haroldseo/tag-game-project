@@ -11,7 +11,7 @@ Click [Here](https://haroldseo.github.io/tag-game-project/) to Play
 TAG, You're It! was built using HTML, CSS, JavaScript and the jQuery library
 
 ## Approach Taken
-- Started off by creating game components(Players, Playing Field) 
+- Started off by creating game components (Players, Playing Field) 
 - Created player movement
 - Collision detection to keep the players in bound and for when a tag occurs 
 - Created a timer
@@ -22,8 +22,9 @@ TAG, You're It! was built using HTML, CSS, JavaScript and the jQuery library
 - Creating obstacles to limit the player's movements
 - Adjusting to window size
 
-## Dreams
+## Future Work
 - Bigger Field
 - Adding multiple rounds
 - Different game modes
 - Adding sounds
+- Better CSS/Styling
