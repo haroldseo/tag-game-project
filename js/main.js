@@ -1,7 +1,7 @@
 var $player1 = $("#player1")
 var $player2 = $("#player2")
-var $wall = $("#wall")
-var $wall2 = $("#wall2")
+var $wall1 = $(".w1")
+var $wall2 = $(".w2")
 
 $player1.css({
     left: 10,
@@ -11,7 +11,7 @@ $player2.css({
     left: 860,
     top: 285
 })
-$wall.css({
+$wall1.css({
     left: 90,
     top: 80,
 })
@@ -20,7 +20,7 @@ $wall2.css({
     top: 450
 })
 
-$("#playingField").append($player1, $player2, $wall, $wall2)
+$("#playingField").append($player1, $player2, $wall1, $wall2)
 
 //--------------------------------------------------------
 var p1s = document.querySelector("#p1Score")
@@ -92,8 +92,8 @@ function setMovement() {
                 p1s.innerText = seconds
                 clearInterval(p1Movement);
                 clearInterval(p2Movement);
-                heading.innerText = "Tag, You're It!!!!!  (Now Switch)"
-                heading.style.fontSize = "300%"
+                heading.innerText = "Tag, You're It! Now Switch!"
+                heading.style.fontSize = "350%"
             }
         }
     }, 2);
@@ -131,13 +131,13 @@ function setMovement() {
                 var p1Time = Number(p1s.innerText)
                 var p2Time = Number(p2s.innerText)
                 if(p1Time < p2Time){
-                    heading.innerText = "Player 1 Wins!!!!!"
+                    heading.innerText = "Player 1 Wins!!"
                 } else if (p1Time > p2Time) {
-                    heading.innerText = "Player 2 Wins!!!!!"
+                    heading.innerText = "Player 2 Wins!!"
                 } else {
                     heading.innerText = "It's a tie!"
                 }
-                heading.style.fontSize = "300%" 
+                heading.style.fontSize = "350%" 
                 clearInterval(p1Movement)
                 clearInterval(p2Movement)
             }
@@ -174,7 +174,7 @@ startGame.addEventListener("click", function() {
     heading.style.fontSize = "200%"
     p1s.innerText = "0"
     p2s.innerText = "0"
-    $player1.text("IT")
+    $player1.append("<div style='vertical-align: middle; line-height: 30px; font-size: 20px; color: rgb(66, 66, 66);'>IT</div>")
     $player2.text("")
     if(currentPlayer === 2) {
         currentPlayer = 1
@@ -199,7 +199,7 @@ nextPlayer.addEventListener("click", function() {
     heading.innerText = "Tag, You're It!"
     heading.style.fontSize = "200%"
     $player1.text("")
-    $player2.text("IT")
+    $player2.append("<div style='vertical-align: middle; line-height: 30px; font-size: 20px; color: rgb(66, 66, 66);'>IT</div>")
     intervalAddTime = setInterval(addTime, 1000)
     if(currentPlayer === 1) {
         currentPlayer = 2

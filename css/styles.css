@@ -1,17 +1,18 @@
 body {
-    background: #717171;
+    background: rgb(12, 12, 12);
 }
 
 h1{
     text-align: center;
-    margin: 5px auto;
-    color: #FFFFFF;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    margin: auto;
+    margin-bottom: 8px;
+    color: #D0D3D2;
 }
 
 #container {
-    width: 1394px;
-    height: 700px;
+    max-width: 1394px;
+    max-height: 700px;
+    margin: auto;
 }
 
 #start {
@@ -19,61 +20,42 @@ h1{
 }
 
 #SG {
-    border: 1px solid black;
+    background: #D0D3D2;
 }
 
 #S {
-    border: 1px solid black;
+    background: #D0D3D2;
 }
 
 #timer {
     margin-top: 7px;
     margin-bottom: 7px;
-    color: #FFFFFF;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    color: #D0D3D2;
 }
 
 #playingField {
     width: 900px;
     height: 600px;
-    background: #D2FFD7;
+    background: #D0D3D2;
     position: relative;
     margin: auto;
-    border: 1px solid #000000;
+    border: 7px solid #757877;
 }
 
-#p1Line {
+#p1Board {
     float: left;
-    margin-left: 75px;
-    text-decoration: underline;
     color: #FF9797;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    text-align: center;
+    margin-left: 50px;
+    font-size: 30px;
 }
 
-#p1Score {
-    float: left;
-    position: absolute;
-    margin-top: 50px;
-    margin-left: 105px;
-    color: #FF9797;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-}
-
-#p2Line {
+#p2Board {
     float: right;
-    margin-right: 75px;
-    text-decoration: underline;
     color: #99B1FF;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-}
-
-#p2Score {
-    float: right;
-    position: absolute;
-    margin-top: 50px;
-    margin-left: 1277px;
-    color: #99B1FF;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    text-align: center;
+    margin-right: 50px;
+    font-size: 30px;
 }
 
 #player1 {
@@ -84,7 +66,7 @@ h1{
     position: absolute;
     text-align: center;
     color: #000000;
-    border: 1px solid black;
+    border: 2px solid #757877;
 }
 
 #player2 {
@@ -95,27 +77,21 @@ h1{
     position: absolute;
     text-align: center;
     color: #000000;
-    border: 1px solid black;
+    border: 2px solid #757877;
 }
 
 #wall {
     width: 250px;
     height: 70px;
-    background: #D8B9FF;
+    background: #757877;
     position: absolute;
-    text-align: center;
-    border: 1px solid black;
-    color: #FFFFFF;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    border: 2px solid rgb(66, 66, 66);
 }
 
-#wall2 {
-    width: 250px;
-    height: 70px;
-    background: #D8B9FF;
-    position: absolute;
+#walltext {
     text-align: center;
-    border: 1px solid black;
-    color: #FFFFFF;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    vertical-align: middle;
+    line-height: 70px;
+    color: #D0D3D2;
+    font-size: 30px;
 }
